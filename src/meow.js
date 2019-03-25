@@ -1,73 +1,40 @@
+import findElement from './selector/findElement';
+import stringToArray from './utils/stringToArray';
+
 (function(window){
     "use strict";
     var version = "1.0.0";
     
-    function meow( selector, context ){
-        
+    var meow = function( selector, context ){
+        return new meow.fn.init( selector, context );
     }
-
-    function getElement(value){
-        if (!document.querySelectorAll) {
-            document.querySelectorAll = function (selectors) {
-                var style = document.createElement('style'), elements = [], element;
-                document.documentElement.firstChild.appendChild(style);
-                document._qsa = [];
-
-                style.styleSheet.cssText = selectors + '{x-qsa:expression(document._qsa && document._qsa.push(this))}';
-                window.scrollBy(0, 0);
-                style.parentNode.removeChild(style);
-
-                while (document._qsa.length) {
-                    element = document._qsa.shift();
-                    element.style.removeAttribute('x-qsa');
-                    elements.push(element);
-                }
-                document._qsa = null;
-                return elements;
-            };
-        }
-        if (!document.querySelector) {
-            document.querySelector = function (selectors) {
-                var elements = document.querySelectorAll(selectors);
-                return (elements.length) ? elements[0] : null;
-            };
-        }
-        return document.querySelectorAll(value);
-    }
-
-    function stringToArray(value){
-        if ( Array.isArray( value ) ) {
-            return value;
-        }
-        if ( typeof value === "string" ) {
-            return value.match( /[^\x20\t\r\n\f]+/g ) || [];
-        }
-        return [];
-    }
-
-    meow.prototype = {
-        meow: version,
-        addClass: function( element, className ){
-            var _element = getElement( element );
-            var _className = stringToArray( className );
-            if(_className.length){
-                for(var i = _element.length; i--;){
-                    for(var j = _className.length; j--;){
-                        _element[i].classList.add(_className[j]);
-                    }
-                }
-            }
+    meow.fn = meow.prototype = {
+        addClass: function(className){
+            console.log("addClass", this);
+            // var _element = findElement( this );
+            // var _className = stringToArray( className );
+            // if(_className.length){
+            //     for(var i = _element.length; i--;){
+            //         for(var j = _className.length; j--;){
+            //             _element[i].classList.add(_className[j]);
+            //         }
+            //     }
+            // }
+            return this;
         },
-        removeClass: function( element, className ){
-
+        removeClass: function(element, className){
+            console.log("addClass");
         },
-        toggleClass: function( element, className ){
+    };
 
-        },
+    var init = meow.fn.init = function(selector, context){
+        console.log(this);
+        //return findElement(selector);
     }
+    init.prototype = meow.fn;
 
-    window.meow = new meow();
+    meow( "#idName1" );
+    window.meow = meow;
 
     return meow;
-
-})(window)
+})(window);
