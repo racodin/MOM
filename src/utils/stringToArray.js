@@ -1,13 +1,15 @@
-import regexr from './regexr';
+import regexp from './regexp';
 
-export default function stringToArray(value){
+function stringToArray(value){
     "use strict";
     
     if ( Array.isArray( value ) ) {
         return value;
     }
     if ( typeof value === "string" ) {
-        return value.match( regexr.rnothtmlwhite ) || [];
+        return value.match( regexp.rnothtmlwhite ) || [];
     }
     return [];
 }
+
+export default stringToArray;

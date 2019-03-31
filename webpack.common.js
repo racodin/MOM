@@ -4,7 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        meow: './src/meow.js',
+        meow: './src/index.js',
         test: './test/test.js'
     },
     plugins: [
