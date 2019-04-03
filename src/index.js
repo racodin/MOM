@@ -1,5 +1,3 @@
-import meow from './meow';
-import './core/init';
-import './function/classes';
+import MOM from './MOM';
 
-window.meow = meow;
+window.MOM = MOM;

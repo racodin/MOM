@@ -1,5 +1,5 @@
-const regexr = {
+const regexp = {
     rnothtmlwhite: /[^\x20\t\r\n\f]+/g
 }
 
-export default regexr;
+export default regexp;

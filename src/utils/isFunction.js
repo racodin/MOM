@@ -1,4 +1,4 @@
-var isFunction = function isFunction( obj ) {   // 74
+function isFunction( obj ) {   // 74
     "use strict";
     
     // 지원: Chrome <=57, Firefox <=52

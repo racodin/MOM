@@ -4,13 +4,13 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        meow: './src/index.js',
+        mom: './src/index.js',
         test: './test/test.js'
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: 'Meow JS',
+            title: 'MOM JS',
             filename: 'index.html',
             template: 'public/index.html'
         })
