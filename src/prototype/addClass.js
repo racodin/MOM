@@ -1,14 +1,14 @@
 import stringToArray from '../utils/stringToArray';
 
 function addClass( value ){
-    if(!value){
-        console.error( value );
+    if( !value || typeof value === "number" ) {
+        throw Error( "There's a problem with value" );
     }
 
-    var classes = stringToArray(value);
+    let classes = stringToArray(value);
     
-    if(classes.length){
-        for( var i = 0, elsLen = this.length; i < elsLen; i++ ){
+    if( classes.length ){
+        for( let i = 0, elsLen = this.length; i < elsLen; i++ ){
             classes.forEach(function( name ){
                 this[i].classList.add( name );
             }, this);

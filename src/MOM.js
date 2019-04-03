@@ -2,6 +2,7 @@ import isFunction from './utils/isFunction';
 import './utils/class2type';
 import each from './attributes/each';
 import isMobile from './attributes/isMobile';
+import system from './attributes/system';
 import addClass from './prototype/addClass';
 import removeClass from './prototype/removeClass';
 import toggleClass from './prototype/toggleClass';
@@ -118,7 +119,9 @@ MOM.extend = MOM.prototype.extend = function(){
 
 MOM.extend({
     each: each,
-    isMobile: isMobile
+    // 사용중인 환경이 모바일인지를 확인하여 반환
+    isMobile: isMobile,
+    system: system,
 });
 
 MOM.prototype.extend({

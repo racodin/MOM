@@ -50,6 +50,14 @@ MOM("element").removeClass("className");
 ```
 MOM("element").removeClass("className");
 ```
+---
+
+### .each( callback )
+> ##### @param { Function } 
+###### 일치하는 모든 요소에 대해 지정한 함수를 실행
+```
+MOM("element").each(callback);
+```
 
 
 ### 📚 attributes
