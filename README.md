@@ -8,13 +8,13 @@ MOM JS는 jQuery의 구조를 참고하여 나만의 Library로 제작한 것 �
 ### 📚 prototype
 ---
 
-#### .addClass( value ) 
+### .addClass( value ) 
 > ##### @param value { String | Array } 
-##### 일치하는 각 요소에 지정한 클래스 이름이 추가
+###### 일치하는 각 요소에 지정한 클래스 이름이 추가
 ```
 MOM("element").addClass("className");
 ```
-##### 클래스명을 다중으로 선언할 수도 있습니다.
+###### 클래스명을 다중으로 선언할 수도 있습니다.
 ``` 
 MOM("element").addClass("className1 className2 className3...");
 
@@ -22,13 +22,13 @@ MOM("element").addClass([className1, className2, className3...]);
 ```
 ---
 
-#### .removeClass( value )
+### .removeClass( value )
 > ##### @param value { String | Array } 
-##### 일치하는 각 요소에 지정한 클래스 이름이 삭제
+###### 일치하는 각 요소에 지정한 클래스 이름이 삭제
 ```
 MOM("element").removeClass("className");
 ```
-##### 클래스명을 다중으로 선언할 수도 있습니다.
+###### 클래스명을 다중으로 선언할 수도 있습니다.
 ``` 
 MOM("element").removeClass("className1 className2 className3...");
 
@@ -36,17 +36,17 @@ MOM("element").removeClass([className1, className2, className3...]);
 ```
 ---
 
-#### .toggleClass( className )
+### .toggleClass( className )
 > ##### @param { String } 
-##### 일치하는 각 요소에 지정한 클래스 이름이 추가/삭제
+###### 일치하는 각 요소에 지정한 클래스 이름이 추가/삭제
 ```
 MOM("element").removeClass("className");
 ```
 ---
 
-#### .hasClass( className )
+### .hasClass( className )
 > ##### @param { String } 
-##### 일치하는 각 요소에 지정한 클래스 이름이 있는지 확인
+###### 일치하는 각 요소에 지정한 클래스 이름이 있는지 확인
 ```
 MOM("element").removeClass("className");
 ```
@@ -56,7 +56,7 @@ MOM("element").removeClass("className");
 ---
 ### .isMobile()
 > ##### @return { Boolean } 
-##### 사용중인 환경이 모바일인지를 확인하여 반환
+###### 사용중인 환경이 모바일인지를 확인하여 반환
 ```
 MOM.isMobile();
 ```
