@@ -1,9 +1,7 @@
-# folder
+# Folder
 /node_modules
-/addClass
 
 # IDE
 .vscode
-
 
 .git

@@ -41,7 +41,7 @@ var MOM = function( selector ){
             return (elements.length) ? elements[0] : null;
         };
     }
-    
+
     var elements = document.querySelectorAll( selector );
     elements.forEach(function(element, index){
         this[index] = element;
