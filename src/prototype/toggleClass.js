@@ -9,11 +9,10 @@ function toggledClass( value ){
     
     if( classes.length ){
         for( var i = 0, elsLen = this.length; i < elsLen; i++ ){
-            classes.forEach(function( name ){
-                this[i].classList.toggle( name );
-            }, this);
+            classes.forEach( name => this[i].classList.toggle( name ) );
         }
     }
+    return this;
 }
 
 export default toggledClass;

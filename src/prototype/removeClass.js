@@ -9,9 +9,7 @@ function removeClass( value ){
     
     if( classes.length ){
         for( var i = 0, elsLen = this.length; i < elsLen; i++ ){
-            classes.forEach(function( name ){
-                this[i].classList.remove( name );
-            }, this);
+            classes.forEach( name => this[i].classList.remove( name ) );
         }
     }
     return this;

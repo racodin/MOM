@@ -14,13 +14,13 @@ import hasClass from './prototype/hasClass';
 
 const version = "1.0.0";
 
-let MOM = ( selector ) => {
+let MOM = function( selector ){
     if( !(this instanceof MOM) ){
         return new MOM( selector );
     }
 
     if (!document.querySelectorAll) {
-        document.querySelectorAll = function (selectors) {
+        document.querySelectorAll = selectors => {
             var style = document.createElement('style'), elements = [], element;
             document.documentElement.firstChild.appendChild(style);
             document._qsa = [];
@@ -39,16 +39,14 @@ let MOM = ( selector ) => {
         };
     }
     if (!document.querySelector) {
-        document.querySelector = function (selectors) {
+        document.querySelector = selectors => {
             var elements = document.querySelectorAll(selectors);
             return (elements.length) ? elements[0] : null;
         };
     }
 
-    let elements = document.querySelectorAll( selector );
-    elements.forEach(function(element, index){
-        this[index] = element;
-    }, this);
+    const elements = document.querySelectorAll( selector );
+    elements.forEach( (element, index) => this[index] = element );
     this.length = elements.length;
 
     return this;
@@ -93,7 +91,7 @@ MOM.extend = MOM.prototype.extend = function extend(){
                 if ( target === copy ) continue;
 
                 // 일반 객체나 배열을 병합하는 경우 반복
-                if ( deep && copy && ( jQuery.isPlainObject( copy ) ||
+                if ( deep && copy && ( MOM.isPlainObject( copy ) ||
                     ( copyIsArray = Array.isArray( copy ) ) ) ) {
 
                     if ( copyIsArray ) {
@@ -101,11 +99,11 @@ MOM.extend = MOM.prototype.extend = function extend(){
                         clone = src && Array.isArray( src ) ? src : [];
 
                     } else {
-                        clone = src && jQuery.isPlainObject( src ) ? src : {};
+                        clone = src && MOM.isPlainObject( src ) ? src : {};
                     }
 
                     // 원본 객체를 이동하거나 복제 절대 금지
-                    target[ name ] = jQuery.extend( deep, clone, copy );
+                    target[ name ] = MOM.extend( deep, clone, copy );
 
                 // 정의되지 않은 값을 가져올수 없음
                 } else if ( copy !== undefined ) {
@@ -145,9 +143,7 @@ MOM.prototype.extend({
     // MOM 객체의 기본 길이는 0
     length: 0,
     // 일치하는 모든 요소에 대해 callback을 실행
-    each: function( callback ){
-        return MOM.each( this, callback )
-    },
+    each: callback => MOM.each( this, callback ),
     // 선택 요소에 클래스명 추가
     addClass: addClass,
     // 선택 요소에 클래스명 삭제

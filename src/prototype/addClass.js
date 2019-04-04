@@ -9,9 +9,7 @@ function addClass( value ){
     
     if( classes.length ){
         for( let i = 0, elsLen = this.length; i < elsLen; i++ ){
-            classes.forEach(function( name ){
-                this[i].classList.add( name );
-            }, this);
+            classes.forEach( name => this[i].classList.add( name ) );
         }
     }
     return this;

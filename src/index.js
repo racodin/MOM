@@ -1,6 +1,4 @@
 import MOM from './MOM';
 
-MOM.noConflict = function() {
-    return MOM;
-}
+MOM.noConflict = () => MOM
 window.MOM = MOM;
