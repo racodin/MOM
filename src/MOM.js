@@ -12,9 +12,9 @@ import hasClass from './prototype/hasClass';
 
 "use strict";
 
-var version = "1.0.0";
+const version = "1.0.0";
 
-var MOM = function( selector ){
+let MOM = ( selector ) => {
     if( !(this instanceof MOM) ){
         return new MOM( selector );
     }
@@ -45,7 +45,7 @@ var MOM = function( selector ){
         };
     }
 
-    var elements = document.querySelectorAll( selector );
+    let elements = document.querySelectorAll( selector );
     elements.forEach(function(element, index){
         this[index] = element;
     }, this);
@@ -55,7 +55,7 @@ var MOM = function( selector ){
 }
 
 MOM.extend = MOM.prototype.extend = function extend(){ 
-    var options, name, src, copy, copyIsArray, clone,
+    let options, name, src, copy, copyIsArray, clone,
         target = arguments[ 0 ] || {},
         i = 1,
         length = arguments.length,
