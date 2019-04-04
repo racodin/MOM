@@ -9,12 +9,14 @@ import addClass from './prototype/addClass';
 import removeClass from './prototype/removeClass';
 import toggleClass from './prototype/toggleClass';
 import hasClass from './prototype/hasClass';
+import bind from './event/bind';
+import unbind from './event/unbind';
 
 "use strict";
 
 const version = "1.0.0";
 
-let MOM = function( selector ){
+const MOM = function( selector ){
     if( !(this instanceof MOM) ){
         return new MOM( selector );
     }
@@ -151,7 +153,9 @@ MOM.prototype.extend({
     // 선택 요소에 클래스명 추가/삭제
     toggleClass: toggleClass,
     // 선택 요소에 클래스명 확인
-    hasClass: hasClass
+    hasClass: hasClass,
+    bind: bind,
+    unbind: unbind,
 });
 
 export default MOM;
