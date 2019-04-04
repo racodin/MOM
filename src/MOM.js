@@ -1,8 +1,10 @@
-import isFunction from './utils/isFunction';
 import './utils/class2type';
-import each from './attributes/each';
+import isFunction from './utils/isFunction';
+import isWindow from './utils/isWindow';
+import toType from './utils/toType';
+import browser from './attributes/browser';
 import isMobile from './attributes/isMobile';
-import system from './attributes/system';
+import each from './attributes/each';
 import addClass from './prototype/addClass';
 import removeClass from './prototype/removeClass';
 import toggleClass from './prototype/toggleClass';
@@ -52,7 +54,7 @@ var MOM = function( selector ){
     return this;
 }
 
-MOM.extend = MOM.prototype.extend = function(){ 
+MOM.extend = MOM.prototype.extend = function extend(){ 
     var options, name, src, copy, copyIsArray, clone,
         target = arguments[ 0 ] || {},
         i = 1,
@@ -118,10 +120,22 @@ MOM.extend = MOM.prototype.extend = function(){
 }
 
 MOM.extend({
+    // 사용중인 환경이 모바일인지를 확인하여 반환
+    browser: browser,
+    // 전달된 객체의 모든 요소에 대해 지정한 함수를 실행
     each: each,
+    // 전달된 값이 배열인지 판별하여 반환
+    isArray: Array.isArray,
+    // 전달된 값이 함수인지 판별하여 반환
+    isFunction: isFunction,
     // 사용중인 환경이 모바일인지를 확인하여 반환
     isMobile: isMobile,
-    system: system,
+    // 전달된 값이 window인지 판별하여 반환
+    isWindow: isWindow,
+    // 전달된 값을 JSON형식의 문자열로 반환
+    parseJSON: JSON.parse,
+    // 전달된 값의 타입을 반환
+    type: toType
 });
 
 MOM.prototype.extend({
