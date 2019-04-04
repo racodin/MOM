@@ -12,7 +12,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'MOM JS',
             filename: 'index.html',
-            template: 'public/index.html'
+            template: 'public/index.html',
+            favicon: false
         })
     ],
     output: {
