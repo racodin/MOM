@@ -9,8 +9,8 @@ import addClass from './prototype/addClass';
 import removeClass from './prototype/removeClass';
 import toggleClass from './prototype/toggleClass';
 import hasClass from './prototype/hasClass';
-import bind from './event/bind';
-import unbind from './event/unbind';
+import addEvent from './event/addEvent';
+import removeEvent from './event/removeEvent';
 
 "use strict";
 
@@ -47,7 +47,7 @@ const MOM = function( selector ){
         };
     }
 
-    const elements = document.querySelectorAll( selector );
+    const elements = Array.from( document.querySelectorAll( selector ) );
     elements.forEach( (element, index) => this[index] = element );
     this.length = elements.length;
 
@@ -154,8 +154,8 @@ MOM.prototype.extend({
     toggleClass: toggleClass,
     // 선택 요소에 클래스명 확인
     hasClass: hasClass,
-    bind: bind,
-    unbind: unbind,
+    addEvent: addEvent,
+    removeEvent: removeEvent,
 });
 
 export default MOM;
