@@ -46,8 +46,8 @@ const MOM = function( selector ){
             return (elements.length) ? elements[0] : null;
         };
     }
-
-    const elements = Array.from( document.querySelectorAll( selector ) );
+    const matches = document.querySelectorAll( selector );
+    const elements = Array.prototype.slice.call( matches );
     elements.forEach( (element, index) => this[index] = element );
     this.length = elements.length;
 
