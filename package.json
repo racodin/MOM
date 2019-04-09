@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/racodin/meowjs.git"
+    "url": "git+https://github.com/racodin/MOM.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/racodin/meowjs/issues"
   },
-  "homepage": "https://github.com/racodin/meowjs#readme",
+  "homepage": "https://github.com/racodin/MOM#readme",
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
